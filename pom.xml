@@ -2,14 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.spring-boot-archetypes</groupId>
-    <artifactId>spring-boot-quickstart</artifactId>
-    <version>1.0.0</version>
+    <groupId>com.searchmetrics</groupId>
+    <artifactId>searchmetrics-spring-boot-archetype</artifactId>
+    <version>1.0</version>
     <packaging>maven-archetype</packaging>
 
-    <name>Spring Boot Maven Archetype: Quickstart</name>
+    <name>Spring Boot Maven Archetype</name>
     <description>Archetype for creating Spring Boot application</description>
-    <url>https://github.com/suzel/spring-boot-quickstart-archetype</url>
+    <url>https://github.com/sm-ali-yuce/spring-boot-quickstart-archetype</url>
 
     <!-- Properties -->
     <properties>

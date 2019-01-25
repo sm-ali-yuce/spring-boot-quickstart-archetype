@@ -1,0 +1,42 @@
+language: java
+
+cache:
+  directories:
+    - $HOME/.m2
+
+branches:
+  only:
+    - master
+
+#
+# prepare:
+# deployment is done after caching in travis, so force download of plugin dependencies upfront
+#
+install: "mvn dependency:resolve-plugins -Dsilent"
+
+#
+# build
+#
+script: "mvn clean install"
+
+#path to jar on travis /home/travis/build/searchmetrics/app_folder/target
+after_script:
+  - zip -j archive.zip ${TRAVIS_BUILD_DIR}/target/*.jar ${TRAVIS_BUILD_DIR}/target/docker/*
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: ${AWS_ACCESS_KEY}
+  secret_access_key:
+    secure: ${AWS_SECRET_ACCESS_KEY}
+  region:
+  app:
+  env:
+  bucket_name:
+  on:
+    branch:
+  skip_cleanup: true
+  zip_file: archive.zip
+
+notifications:
+  webhooks:

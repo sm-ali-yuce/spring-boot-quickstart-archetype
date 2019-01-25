@@ -16,22 +16,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
-@WebAppConfiguration
 public class ApplicationTests {
 
-    @Autowired
-    private WebApplicationContext wac;
-
-    private MockMvc mockMvc;
-
-    @Before
-    public void setup() {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-    }
-
     @Test
-    public void testHome() throws Exception {
-        this.mockMvc.perform(get("/")).andExpect(status().isOk());
+    public void testHome() {
     }
 
 }
